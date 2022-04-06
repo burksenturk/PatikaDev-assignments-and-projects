@@ -20,7 +20,7 @@ namespace Telefon_Rehberi_Uygulaması
             string TelefonNo = Console.ReadLine();
             KisiListesi.Add(new Kisiler() { Isim = Isim, Soyisim = Soyisim, TelefonNo = TelefonNo });
 
-
+            TestDisplay(KisiListesi);
         }
 
 
@@ -49,7 +49,7 @@ namespace Telefon_Rehberi_Uygulaması
 
                 }
             }
-                if(!KisiKontrol)
+            if (!KisiKontrol)
             {
                 System.Console.WriteLine("Aradığınız krtiterlere uygun veri rehberde bulunamadı. Lütfen bir seçim yapınız.");
                 System.Console.WriteLine("* Silmeyi sonlandırmak için : (1)");
@@ -63,7 +63,7 @@ namespace Telefon_Rehberi_Uygulaması
                 if (giren == 1)
                 {
                     System.Console.WriteLine("silme işlemi sonlandırılıyor..");
-                    
+
                 }
 
             }
@@ -126,17 +126,40 @@ namespace Telefon_Rehberi_Uygulaması
         //4)
         public static void RehberListeleme(List<Kisiler> KisiListesi)
         {
-            System.Console.WriteLine("Telefon Rehberi");
-            System.Console.WriteLine("**********************************************");
-
-            foreach (var item in KisiListesi)
+            System.Console.WriteLine("Rehberi A-Z Şeklinde sıralamak istiyorsanız (1)");
+            System.Console.WriteLine("Rehberi Z-A Şeklinde sıralamak istiyorsanız (2)");
+            string girdi = Console.ReadLine();
+            if (girdi == "1")
             {
-                Console.WriteLine(" isim= {0} \n soyisim = {1} \n telefon no = {2} \n     - ", item.Isim, item.Soyisim, item.TelefonNo);
+                System.Console.WriteLine("Telefon Rehberi (A-Z)");
+                System.Console.WriteLine("**********************************************");
+                var SiraliRehberListesi = from Kisi in KisiListesi
+                                          orderby Kisi.Isim 
+                                          select Kisi;                
+             foreach (var Kisi in SiraliRehberListesi)
+               {
+                Console.WriteLine(" isim= {0} \n soyisim = {1} \n telefon no = {2} \n     - ", Kisi.Isim, Kisi.Soyisim, Kisi.TelefonNo);
+                System.Console.WriteLine(".\n.");
+               }
+
             }
-            System.Console.WriteLine(".\n.");
+            if (girdi == "2")
+            {
+                var SiraliRehberListesi = from Kisi in KisiListesi
+                                          orderby Kisi.Isim descending
+                                          select Kisi;                 
+                
+                System.Console.WriteLine("Telefon Rehberi (Z-A)");
+                System.Console.WriteLine("**********************************************");                
+                foreach (var Kisi in SiraliRehberListesi)
+                {
+
+                    Console.WriteLine(" isim= {0} \n soyisim = {1} \n telefon no = {2} \n     - ", Kisi.Isim, Kisi.Soyisim, Kisi.TelefonNo);
+                    System.Console.WriteLine(".\n.");
+                }
 
 
-
+            }
 
         }
         //5)

@@ -30,7 +30,7 @@ namespace Telefon_Rehberi_Uygulaması
             System.Console.WriteLine("(5) Rehberde Arama Yapmak");
 
             
-            Console.Write("işlem yapacağınız sıra:"); int deger = int.Parse(Console.ReadLine());
+            Console.Write("işlem yapacağınız numara:"); int deger = int.Parse(Console.ReadLine());
             switch (deger)
             {
 
