@@ -8,16 +8,14 @@ namespace Telefon_Rehberi_Uygulaması
 
         static void Main(string[] args)
         {
-            Kisiler ornek = new Kisiler();
-            List<Kisiler> KisiListesi = new List<Kisiler>()
+            List<Kisi> KisiListesi = new List<Kisi>()
             {
-                new Kisiler(){Isim="burak",Soyisim="şentürk",TelefonNo="5356214553"},
-                new Kisiler(){Isim="selen",Soyisim="yüntem",TelefonNo="5401234567"},
-                new Kisiler(){Isim="bilal",Soyisim="yılmaz",TelefonNo="5381233885"},
-                new Kisiler(){Isim="yavuz",Soyisim="yılmaz",TelefonNo="712345678"},
-                new Kisiler(){Isim="çağla",Soyisim="şentürk",TelefonNo="987654332"},
-
-
+                new Kisi(){Isim="burak",Soyisim="şentürk",TelefonNo="5356214553"},
+                new Kisi(){Isim="selen",Soyisim="yüntem",TelefonNo="5401234567"},
+                new Kisi(){Isim="bilal",Soyisim="yılmaz",TelefonNo="5381233885"},
+                new Kisi(){Isim="yavuz",Soyisim="yılmaz",TelefonNo="712345678"},
+                new Kisi(){Isim="çağla",Soyisim="şentürk",TelefonNo="987654332"},
+                
             };
 
             System.Console.WriteLine("Lütfen yapmak istediğiniz işlemi seçiniz ");
@@ -30,7 +28,7 @@ namespace Telefon_Rehberi_Uygulaması
             System.Console.WriteLine("(5) Rehberde Arama Yapmak");
 
             
-            Console.Write("işlem yapacağınız numara:"); int deger = int.Parse(Console.ReadLine());
+            Console.Write("işlem yapacağınız sıra:"); int deger = int.Parse(Console.ReadLine());
             switch (deger)
             {
 

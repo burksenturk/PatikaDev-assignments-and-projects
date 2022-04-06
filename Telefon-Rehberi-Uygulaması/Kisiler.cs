@@ -1,5 +1,5 @@
  namespace Telefon_Rehberi_Uygulaması{
- public class Kisiler{
+ public class Kisi{
            
             public string Isim { get ; set  ; }
             public string Soyisim { get ; set ; }

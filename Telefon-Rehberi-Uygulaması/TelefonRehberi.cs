@@ -9,7 +9,7 @@ namespace Telefon_Rehberi_Uygulaması
     public class TelefonRehberi
     {
         //1)
-        public static void NumaraKaydetmek(List<Kisiler> KisiListesi)
+        public static void NumaraKaydetmek(List<Kisi> KisiListesi)
         {
 
             System.Console.WriteLine("Lütfen isim giriniz : ");
@@ -18,14 +18,14 @@ namespace Telefon_Rehberi_Uygulaması
             string Soyisim = Console.ReadLine();
             System.Console.WriteLine("Lütfen telefon numarası giriniz : ");
             string TelefonNo = Console.ReadLine();
-            KisiListesi.Add(new Kisiler() { Isim = Isim, Soyisim = Soyisim, TelefonNo = TelefonNo });
+            KisiListesi.Add(new Kisi() { Isim = Isim, Soyisim = Soyisim, TelefonNo = TelefonNo });
 
             TestDisplay(KisiListesi);
         }
 
 
         //2)
-        public static void NumaraSilmek(List<Kisiler> KisiListesi)
+        public static void NumaraSilmek(List<Kisi> KisiListesi)
         {
             System.Console.WriteLine("Lütfen numarasını silmek istediğiniz kişinin adını ya da soyadını giriniz: ");
             string girdi = Console.ReadLine();
@@ -68,13 +68,12 @@ namespace Telefon_Rehberi_Uygulaması
 
             }
 
-            TestDisplay(KisiListesi);
-
+                TestDisplay(KisiListesi);
         }
 
 
         //3)
-        public static void NumaraGüncelleme(List<Kisiler> KisiListesi)
+        public static void NumaraGüncelleme(List<Kisi> KisiListesi)
         {
             System.Console.WriteLine("Lütfen numarasını değiştirmek istediğiniz kişinin adını ya da soyadını giriniz: ");
             string girdi = Console.ReadLine();
@@ -117,14 +116,12 @@ namespace Telefon_Rehberi_Uygulaması
 
                 }
             }
-
-            TestDisplay(KisiListesi);
-
+                TestDisplay(KisiListesi);
         }
 
 
         //4)
-        public static void RehberListeleme(List<Kisiler> KisiListesi)
+        public static void RehberListeleme(List<Kisi> KisiListesi)
         {
             System.Console.WriteLine("Rehberi A-Z Şeklinde sıralamak istiyorsanız (1)");
             System.Console.WriteLine("Rehberi Z-A Şeklinde sıralamak istiyorsanız (2)");
@@ -133,37 +130,34 @@ namespace Telefon_Rehberi_Uygulaması
             {
                 System.Console.WriteLine("Telefon Rehberi (A-Z)");
                 System.Console.WriteLine("**********************************************");
-                var SiraliRehberListesi = from Kisi in KisiListesi
-                                          orderby Kisi.Isim 
-                                          select Kisi;                
-             foreach (var Kisi in SiraliRehberListesi)
-               {
-                Console.WriteLine(" isim= {0} \n soyisim = {1} \n telefon no = {2} \n     - ", Kisi.Isim, Kisi.Soyisim, Kisi.TelefonNo);
-                System.Console.WriteLine(".\n.");
-               }
-
+                var SiraliRehberListesi = KisiListesi.OrderBy(Kisi => Kisi.Isim);
+                //                           from Kisi in KisiListesi
+                //                           orderby Kisi.Isim
+                //                           select Kisi;
+                 foreach (var Kisi in SiraliRehberListesi)
+                {
+                    Console.WriteLine(" isim= {0} \n soyisim = {1} \n telefon no = {2} \n     - ", Kisi.Isim, Kisi.Soyisim, Kisi.TelefonNo);
+                    System.Console.WriteLine(".\n.");
+                }
             }
             if (girdi == "2")
             {
+                System.Console.WriteLine("Telefon Rehberi (Z-A)");
+                System.Console.WriteLine("**********************************************");
                 var SiraliRehberListesi = from Kisi in KisiListesi
                                           orderby Kisi.Isim descending
-                                          select Kisi;                 
-                
-                System.Console.WriteLine("Telefon Rehberi (Z-A)");
-                System.Console.WriteLine("**********************************************");                
+                                          select Kisi;
                 foreach (var Kisi in SiraliRehberListesi)
                 {
 
                     Console.WriteLine(" isim= {0} \n soyisim = {1} \n telefon no = {2} \n     - ", Kisi.Isim, Kisi.Soyisim, Kisi.TelefonNo);
                     System.Console.WriteLine(".\n.");
                 }
-
-
             }
 
         }
         //5)
-        public static void RehberdeArama(List<Kisiler> KisiListesi)
+        public static void RehberdeArama(List<Kisi> KisiListesi)
         {
 
             System.Console.WriteLine("arama yapmak istediğiniz tipi seçiniz");
@@ -214,7 +208,7 @@ namespace Telefon_Rehberi_Uygulaması
 
         }
 
-        public static void TestDisplay(List<Kisiler> liste)
+        public static void TestDisplay(List<Kisi> liste)
         {
             foreach (var item in liste)
             {
