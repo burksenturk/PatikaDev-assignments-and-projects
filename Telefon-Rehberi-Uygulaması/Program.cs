@@ -24,7 +24,7 @@ namespace Telefon_Rehberi_Uygulaması
             System.Console.WriteLine("(1) Yeni Numara Kaydetmek ");
             System.Console.WriteLine("(2) Varolan Numarayı Silmek");
             System.Console.WriteLine("(3) Varolan Numarayı Güncelleme");
-            System.Console.WriteLine("(4) Rehberi Listelemek");
+            System.Console.WriteLine("(4) Rehberi Listelemekk");
             System.Console.WriteLine("(5) Rehberde Arama Yapmak");
 
             
