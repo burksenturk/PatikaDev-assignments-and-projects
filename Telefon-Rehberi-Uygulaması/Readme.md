@@ -15,5 +15,7 @@
 
 *Uygulama ilk başladığında kullanıcıya yapmak istediği işlem seçtirilir.
 
-[Projenin Linki](https://app.patika.dev/courses/csharp-101/19-proje-1)
+[Projede Linki](https://app.patika.dev/courses/csharp-101/19-proje-1)
+
+
 
